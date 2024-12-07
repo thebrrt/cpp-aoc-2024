@@ -21,11 +21,11 @@ int main()
         bool trendPositive;
         int oldValue;
         int isValid = true;
+        int HP = 1;
+        std::vector<int> deadValueSet;
         while (iss >> number)
         {
             row.push_back(number);
-
-            std::cout << number << " ";
 
             if (isFirst)
             {
@@ -37,7 +37,6 @@ int main()
             int delta = std::abs(oldValue - number);
             if (delta < 1 || delta > 3)
             {
-                std::cout << "INVALID DELTA DIFF";
                 isValid = false;
                 break;
             }
@@ -53,7 +52,6 @@ int main()
             bool deltaPositive = oldValue < number;
             if (trendPositive != deltaPositive)
             {
-                std::cout << "INVALID TREND";
                 isValid = false;
                 break;
             }
@@ -61,7 +59,6 @@ int main()
             oldValue = number;
         }
 
-        std::cout << std::endl;
         if (isValid)
         {
             sum++;
